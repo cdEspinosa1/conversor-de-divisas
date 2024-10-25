@@ -8,14 +8,21 @@ import java.net.http.HttpResponse;
 
 public class ConversorController {
 
-    public ConversorController() throws IOException, InterruptedException {
+    private final HttpClient client = HttpClient.newHttpClient();
+    private HttpRequest request;
+    private String direccionApi;
+
+    public ConversorController() {
     }
 
-    HttpClient client = HttpClient.newHttpClient();
-    HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://v6.exchangerate-api.com/v6/e7f6e4d0207c97531fcb821a/latest/USD"))
-            .build();
+    public String hacerConversion(String monedaBase, String monedaObjetivo, String cantidad) throws IOException, InterruptedException {
 
-     HttpResponse<String> response = client.
-             send(request, HttpResponse.BodyHandlers.ofString());
+        direccionApi = String.format("https://v6.exchangerate-api.com/v6/e7f6e4d0207c97531fcb821a/pair/%s/%s/%s", monedaBase, monedaObjetivo, cantidad);
+
+        request = HttpRequest.newBuilder().uri(URI.create(direccionApi)).build();
+
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+
+        return response.body();
+    }
 }
