@@ -56,7 +56,7 @@ public class ConversorService {
 
     public void mostrarHistorial(){
 
-        String historialTemplate = "";
+        String historialTemplate;
 
         for (Conversion conversion : historial) {
 
