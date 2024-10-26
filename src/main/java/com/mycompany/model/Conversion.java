@@ -6,16 +6,16 @@ public final class Conversion {
     private final String base_code;
     private final String target_code;
     private String fecha;
-    private final Double conversion_rate;
-    private Double cantidadBase;
-    private final Double conversion_result;
+    private final String conversion_rate;
+    private Float cantidadBase;
+    private final String conversion_result;
 
     public Conversion(String base_code,
                       String target_code,
                       String fecha,
-                      Double conversion_rate,
-                      Double cantidadBase,
-                      Double conversion_result) {
+                      String conversion_rate,
+                      Float cantidadBase,
+                      String conversion_result) {
         this.base_code = base_code;
         this.target_code = target_code;
         this.fecha = fecha;
@@ -32,7 +32,7 @@ public final class Conversion {
         this.fecha = fecha;
     }
 
-    public void setCantidadBase(Double cantidadBase) {
+    public void setCantidadBase(Float cantidadBase) {
         this.cantidadBase = cantidadBase;
     }
 
@@ -44,15 +44,15 @@ public final class Conversion {
         return fecha;
     }
 
-    public Double conversion_rate() {
+    public String conversion_rate() {
         return conversion_rate;
     }
 
-    public Double cantidadBase() {
+    public Float cantidadBase() {
         return cantidadBase;
     }
 
-    public Double conversion_result() {
+    public String conversion_result() {
         return conversion_result;
     }
 

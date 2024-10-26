@@ -13,7 +13,7 @@ public class ConversorController {
     public ConversorController() {
     }
 
-    public String hacerConversion(String monedaBase, String monedaObjetivo, Double cantidad) throws IOException, InterruptedException {
+    public String hacerConversion(String monedaBase, String monedaObjetivo, Float cantidad) throws IOException, InterruptedException {
 
         String direccionApi = String.format("https://v6.exchangerate-api.com/v6/e7f6e4d0207c97531fcb821a/pair/%s/%s/%s", monedaBase, monedaObjetivo, cantidad);
 

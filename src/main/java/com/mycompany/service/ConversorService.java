@@ -26,15 +26,15 @@ public class ConversorService {
         return gson.fromJson(json, Conversion.class);
     }
 
-    public Double obtenerCantidad (){
+    public Float obtenerCantidad (){
 
         System.out.print("\nIngresa la contidad a convertir: ");
 
-        return scanner.nextDouble();
+        return scanner.nextFloat();
     }
 
-    public void mostrarResultado(Double tipoDeCambio, String fecha, String codigoBase, String codigoObjetivo,
-                                 Double cantidadBase, Double cantidadObjetivo){
+    public void mostrarResultado(String tipoDeCambio, String fecha, String codigoBase, String codigoObjetivo,
+                                 Float cantidadBase, String cantidadObjetivo){
 
         String resultado = String.format("""
                 
@@ -45,7 +45,7 @@ public class ConversorService {
                 $%,.2f %s equivalen a $%,.4f %s
                 
                 ***************************************************""",
-                tipoDeCambio, fecha, cantidadBase, codigoBase, cantidadObjetivo, codigoObjetivo);
+                Float.valueOf(tipoDeCambio), fecha, cantidadBase, codigoBase, Float.valueOf(cantidadObjetivo), codigoObjetivo);
 
         System.out.println(resultado);
     }
@@ -67,10 +67,10 @@ public class ConversorService {
                      -------------------------------------------------------------
                      """,
                     conversion.fecha(),
-                    conversion.conversion_rate(),
+                    Float.valueOf(conversion.conversion_rate()),
                     conversion.cantidadBase(),
                     conversion.base_code(),
-                    conversion.conversion_result(),
+                    Float.valueOf(conversion.conversion_result()),
                     conversion.target_code());
 
             System.out.println(historialTemplate);

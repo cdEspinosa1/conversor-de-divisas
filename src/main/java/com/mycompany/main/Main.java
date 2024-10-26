@@ -31,9 +31,9 @@ public class Main {
         //endregion
 
         Scanner teclado = new Scanner(System.in);
-        String seleccion = "";
+        String seleccion = "0";
         String respuesta;
-        Double cantidadAConvertir = 0.0;
+        Float cantidadAConvertir = 0f;
         Conversion conversion = null;
         final ConversorController conversor = new ConversorController();
         final ConversorService service = new ConversorService();
