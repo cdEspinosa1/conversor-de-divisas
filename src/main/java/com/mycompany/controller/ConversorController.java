@@ -1,4 +1,4 @@
-package com.mycompany.conversorControllers;
+package com.mycompany.controller;
 
 import java.io.IOException;
 import java.net.URI;
